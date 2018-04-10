@@ -37,10 +37,12 @@ span {
 	display: none;
 	padding: 2em 0 2em 0;
 	text-align: center;
+	align-self: center;
 	width: 80%;
-	height: 500px;
+	min-height: 300px;
+	max-width: 900px;
 	background: rgba(104,104,104,0.5);
-	margin:10% 10% auto;
+	margin:auto;
 }
 
 .q1,
@@ -72,8 +74,29 @@ span {
 	padding: 0;
 }
 
+.navigation-buttons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	bottom: 50px;
+}
 
+.button {
+	color: white;
+	background: black;
+}
 
+.button.back{
+	flex-grow: 1;
+	margin:35px;
+	padding: 15px;
+}
+
+.button.forward{
+	flex-grow: 1;
+	margin:35px;
+	padding: 15px;
+}
 
 
 
