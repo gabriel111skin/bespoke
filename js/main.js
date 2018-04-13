@@ -45,7 +45,7 @@
 				answers.push(
 					`<label>
 						<input type="radio" name="question${questionNumber}" value="${currentQuestion.answers[index]}">
-						${currentQuestion.answers[index]}
+						<span class="checkmark">${currentQuestion.answers[index]}</span>
 					</label>`
 				);
 			}

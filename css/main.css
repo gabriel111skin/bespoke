@@ -30,14 +30,16 @@ h1:hover {
 }
 
 .question {
+	margin:15px;
 	font-size: 1.7rem;
+	margin-bottom: 1.5rem;
 }
 
-.answers {
+.answers{
 	margin-bottom: 0.8em;
 	width: 100%;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
 }
 
@@ -53,9 +55,10 @@ h1:hover {
 	opacity: 0;
 }
 
-.answers [type=radio]:checked+label {
-	transform: scale(1.2);
-	padding: 0;
+input:checked + .checkmark {
+	transform: scale(1.3);
+	text-shadow: 0 0 5px #fff;
+	display: inline-block;
 }
 
 .button {
@@ -73,7 +76,7 @@ h1:hover {
 
 .slide {
 	position: absolute;
-	top:20%;
+	top:10%;
 	width: 100%;
 	z-index: 1;
 	opacity: 0;
