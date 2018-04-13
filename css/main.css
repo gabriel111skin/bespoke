@@ -1,99 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Gugi);
 body {
+	font-family: 'Gugi', cursive;
+	font-size: 1.5rem;
 	background:dodgerblue;
 	text-align: center;
 }
 
-label {
-	transform: scale(0.8);
-	cursor: pointer;
-	display: block;
-}
-
 h1 {
-	padding: 2em;
-	margin: 2em;
-	box-shadow: 0 0 10px red;
+	box-shadow: 0 0 5px red;
 }
 
 h1:hover {
 	cursor: pointer;
 	color:white;
 	background: black;
-	box-shadow: 0 0 10px white;
-}
-
-ul {
-	padding: 0;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	list-style-type: none;
-}
-
-span {
-	display: block;
+	box-shadow: 0 0 5px white;
 }
 
 .quiz {
-	display: none;
+	position: relative;
 	padding: 2em 0 2em 0;
 	text-align: center;
 	align-self: center;
 	width: 80%;
 	min-height: 300px;
-	max-width: 900px;
+	max-width: 700px;
 	background: rgba(104,104,104,0.5);
 	margin:auto;
 }
 
-.q1,
-.q2,
-.q3 {
-	display: none;	
+.question {
+	font-size: 1.7rem;
 }
 
 .answers {
+	margin-bottom: 0.8em;
 	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
-.answer-option {
-	padding: 0;
-	cursor: pointer;
+.answers label {
+	display: block;
 	flex-grow: 1;
+	transform: scale(0.8);
+	cursor: pointer;
 }
 
-.input-style[type=radio] {
+.answers [type=radio] {
 	position: relative;
 	opacity: 0;
 }
 
-.input-style[type=radio]:checked+label {
-	transform: scale(1.1);
+.answers [type=radio]:checked+label {
+	transform: scale(1.2);
 	padding: 0;
 }
 
-.navigation-buttons {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	bottom: 50px;
-}
-
 .button {
+	font-size: 25px;
 	color: white;
 	background: black;
+	padding: 15px;
+	border:0;
+	cursor:pointer;
 }
 
-.button.back{
-	flex-grow: 1;
-	margin:35px;
-	padding: 15px;
+.button:hover {
+	background:#383;
 }
 
-.button.forward{
-	flex-grow: 1;
-	margin:35px;
-	padding: 15px;
+.slide {
+	position: absolute;
+	top:20%;
+	width: 100%;
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+.active-slide {
+	opacity: 1;
+	z-index: 2;
 }
 
 

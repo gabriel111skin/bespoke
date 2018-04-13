@@ -1,64 +1,128 @@
-const quiz = document.querySelector('.quiz')
+(function() {
+	const questions = [
+		{
+			question: "How manny products do you use a day",
+			answers: {
+				a: "2 products",
+				b: "3-5 products",
+				c: "6+ products"
+			},
+		},
+		{
+			question: "What is your skin type ?",
+			answers: {
+				a: "Dry",
+				b: "Oily",
+				c: "Normal",
+				d: "Combination"
+			},
+		},
+		{
+			question: "What are you looking to achieve?",
+			answers: {
+				a: "Radiance",
+				b: "Moisturise",
+				c: "Brighten",
+				d: "Soothe",
+				e: "Firm"
+			},
+		},
+	];
 
-const headerButton = document.querySelector('.header-button');
 
-const q1 = document.querySelector('.q1');
-const q2 = document.querySelector('.q2');
-const q3 = document.querySelector('.q3');
+	let customerData = [];
 
-const button = [...document.querySelectorAll('.button')];
-const buttons = document.querySelector('.navigation-buttons');
-const savePackageLocal = JSON.parse(localStorage.getItem('savePackageLocal')) || [];
+	function init() {
+		//html output
+		const output = [];
 
-let answers = {
-	numberOfProducts : {},
-	skinType : {},
-	goal : {},
-}
+		questions.forEach((currentQuestion, questionNumber) => {
+			//answers 
+			const answers = [];
+			//add to answers
+			for (index in currentQuestion.answers) {
+				//radio buttons
+				answers.push(
+					`<label>
+						<input type="radio" name="question${questionNumber}" value="${currentQuestion.answers[index]}">
+						${currentQuestion.answers[index]}
+					</label>`
+				);
+			}
+			//add to question and answer to html output
+			output.push(
+				`<div class="slide">
+					<div class="question"> ${currentQuestion.question} </div>
+					<div class="answers"> ${answers.join("")} </div>
+				</div>`
+			);
+		});
 
-let customerData = [];
+		quizApp.innerHTML = output.join("");
+	};
 
-function init() {
-	if (quiz.style.display == 'block') {
-		quiz.style.display = 'none';
-	} else 
-		quiz.style.display = 'block'
-		 q1.style.display = 'block';
-};
+	function quizRezult() {
 
+		const answerContainers = quizApp.querySelectorAll('.answers');
 
-button[1].addEventListener('click', function() {
-
-	if (q1.style.display == 'block') {
-		answers.numberOfProducts = document.querySelector('input[name=number_of_products]:checked').value;
-		q1.style.display = 'none';
-		q2.style.display = 'block';		
-	} 
-	if (q2.style.display = 'block') {
-		answers.skinType = document.querySelector('input[name=skin_products]:checked').value;
-		q2.style.display = 'none';
-		q3.style.display = 'block'
-	} 
-	if (q3.style.display = 'block') {
-		answers.goal = document.querySelector('input[name=goal_products]:checked').value;
-		q3.style.display = 'none';
-		buttons.style.display = 'none';
-		quiz.append(`
-		You choose: ${answers.numberOfProducts.toUpperCase()} products |
-		Skin type: ${answers.skinType.toUpperCase()} |
-		Looking to achieve a ${answers.goal.toUpperCase()} skin`);
-
+		questions.forEach((currentQuestion, questionNumber) => {
+			const answerContainer = answerContainers[questionNumber];
+			const selector = `input[name=question${questionNumber}]:checked`;
+			customerData.push((answerContainer.querySelector(selector) || {}).value);
+		});
+		
+		results.innerHTML = `${customerData}`;
 	}
 
-	
-	savePackageLocal.splice(0, savePackageLocal.length);
+	function slide(x) {
+		slides[slideNow].classList.remove('active-slide');
+		slides[x].classList.add('active-slide');
+		slideNow = x;
 
-	savePackageLocal.push(answers);
+		if (slideNow === 0) {
+			back.style.display = 'none';
+		} else {
+			back.style.display = 'inline-block';
+		}
 
-	localStorage.setItem('savePackageLocal', JSON.stringify(savePackageLocal));
-		
-})
+		if (slideNow === slides.length - 1) {
+			forward.style.display = 'none';
+			submit.style.display = 'inline-block';
+		} else {
+			forward.style.display = 'inline-block';
+			submit.style.display = 'none';
+		}
+	}
 
-headerButton.addEventListener('click', init);
+	function forwardSlide() {
+		slide(slideNow + 1);
+	}
+
+	function backSlide() {
+		slide(slideNow - 1);
+	}
+
+	const quiz = document.querySelector('.quiz')
+	const quizApp = document.querySelector('.quiz-app')
+	const results = document.querySelector('.results')
+
+	init();
+
+	const back = document.querySelector('.back');
+	const forward = document.querySelector('.forward');
+	const submit = document.querySelector('.submit');
+
+	const slides = document.querySelectorAll('.slide');
+	let slideNow = 0;
+
+	slide(0);
+
+	submit.addEventListener('click',quizRezult);
+	forward.addEventListener('click',forwardSlide);
+	back.addEventListener('click',backSlide);
+
+})();
+
+
 
 

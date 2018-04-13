@@ -16,123 +16,13 @@
 					Ask Dr. Yannis
 				</h1>
 			</header>
-				<div class="quiz" id="quiz">
-					<div class="q1">
-						<h2>
-							How manny products do you use a day?
-						</h2>
-						<div class="answers">
-							<ul>
-								<li class="answer-option">
-								<input required class="input-style" type="radio" id="daily-product-1" value="2" name="number_of_products">
-									<label for="daily-product-1">
-										<img src="https://placeimg.com/120/120/animals" width="120" height="120">
-										<span>2 Products</span>
-									</label>
-								</li>
-								<li class="answer-option">
-								<input required class="input-style" type="radio" id="daily-product-2" value="3" name="number_of_products">
-									<label for="daily-product-2">
-										<img src="https://placeimg.com/120/120/arch" width="120" height="120" name="3-4">
-										<span>3-5 Products</span>
-									</label>
-								</li>
-								<li class="answer-option">
-								<input required class="input-style" type="radio" id="daily-product-3" value="6" name="number_of_products">
-									<label for="daily-product-3">
-										<img src="https://placeimg.com/120/120/nature" width="120" height="120">
-										<span>6+ Products</span>
-									</label>	
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="q2">
-						<h2>
-							What is your skin type ?
-						</h2>
-						<div class="answers">
-							<ul>
-								<li class="answer-option">
-								<input class="input-style" type="radio" id="skin-product-1" value="Dry" name="skin_products">
-									<label for="skin-product-1">
-										<img src="https://placeimg.com/120/120/people" width="120" height="120">
-										<span>Dry</span>
-									</label>
-								</li>
-								<li class="answer-option">
-								<input class="input-style" type="radio" id="skin-product-2" value="Oily" name="skin_products">
-									<label for="skin-product-2">
-										<img src="https://placeimg.com/120/120/tech" width="120" height="120" name="3-4">
-										<span>Oily</span>
-									</label>
-								</li>
-								<li class="answer-option">
-								<input class="input-style" type="radio" id="skin-product-3" value="Normal" name="skin_products">
-									<label for="skin-product-3">
-										<img src="https://placeimg.com/120/120/nature/sepia" width="120" height="120">
-										<span>Normal</span>
-									</label>	
-								</li>
-								<li class="answer-option">
-								<input class="input-style" type="radio" id="skin-product-4" value="Combination" name="skin_products">
-									<label for="skin-product-4">
-										<img src="https://placeimg.com/120/120/arch/grayscale" width="120" height="120">
-										<span>Combination</span>
-									</label>	
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="q3">
-						<h2>
-							What are you looking to achieve?
-						</h2>
-						<div class="answers">
-							<ul>
-								<li class="answer-option">
-								<input class="input-style" type="radio" id="goal-product-1" value="RADIANCE" name="goal_products">
-									<label for="goal-product-1">
-										<img src="https://placeimg.com/125/125/people" width="120" height="120">
-										<span>RADIANCE</span>
-									</label>
-								</li>
-								<li class="answer-option">
-								<input class="input-style" type="radio" id="goal-product-2" value="MOISTURISE" name="goal_products">
-									<label for="goal-product-2">
-										<img src="https://placeimg.com/125/125/people?t=1523548749058" width="120" height="120" name="3-4">
-										<span>MOISTURISE</span>
-									</label>
-								</li>
-								<li class="answer-option">
-								<input class="input-style" type="radio" id="goal-product-3" value="BRIGHTEN" name="goal_products">
-									<label for="goal-product-3">
-										<img src="https://placeimg.com/125/125/people?t=1523548760960" width="120" height="120">
-										<span>BRIGHTEN</span>
-									</label>	
-								</li>
-								<li class="answer-option">
-								<input class="input-style" type="radio" id="goal-product-4" value="SOOTHE" name="goal_products">
-									<label for="goal-product-4">
-										<img src="https://placeimg.com/125/125/people?t=1523548769262" width="120" height="120">
-										<span>SOOTHE</span>
-									</label>	
-								</li>
-								<li class="answer-option">
-								<input class="input-style" type="radio" id="goal-product-5" value="FIRM" name="goal_products">
-									<label for="goal-product-5">
-										<img src="https://placeimg.com/125/125/people?t=1523548805308" width="120" height="120">
-										<span>FIRM</span>
-									</label>	
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="navigation-buttons">
-						<button class="button back">Previous</button>
-						<button class="button forward">Next</button>
-					</div> 
-				</div>
+				<div class="quiz">
+					<div class="quiz-app"></div>
+				</div>	
+					<button class="button back">Previous</button>
+					<button class="button forward">Next</button>
+					<button class="button submit">Submit</button>
+				<div class="results"></div>
 				<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 				<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
 				<script src="js/main.js"></script>
